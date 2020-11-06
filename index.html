@@ -27,8 +27,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </head>
   <body>
-    <!-- Nav Bar -->
-    <nav>
+    <!-- Nav Bar Start-->
+    <nav style="background-color: black">
       <div class="nav-wrapper">
         <a href="#" class="brand-logo right">Logo</a>
         <ul id="nav-mobile" class="left hide-on-med-and-down">
@@ -36,16 +36,78 @@
           <li><a href="badges.html">Components</a></li>
           <li><a href="collapsible.html">JavaScript</a></li>
         </ul>
+        <form>
+          <div class="input-field">
+            <input id="search" type="search" required />
+            <label class="label-icon" for="search"
+              ><i class="material-icons">search</i></label
+            >
+            <i class="material-icons">close</i>
+          </div>
+        </form>
       </div>
     </nav>
-    <!-- Nav Bar -->
+    <!-- Nav Bar End -->
     <div id="container">
-      <h1>EARWORM</h1>
+      <h1>earworm</h1>
+      <!-- Cards Start -->
+      <div class="card">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="images/office.jpg" />
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4"
+            >Card Title<i class="material-icons right">more_vert</i></span
+          >
+          <p><a href="#">This is a link</a></p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4"
+            >Card Title<i class="material-icons right">close</i></span
+          >
+          <p>
+            Here is some more information about this product that is only
+            revealed once clicked on.
+          </p>
+        </div>
+      </div>
+      <!-- Cards End -->
+
       <textarea name="text"></textarea>
       <button id="btn">Search</button>
       <img id="img" />
       <div id="textContainer"></div>
     </div>
+
+    <!-- Sticky Footer Start -->
+    <footer style="background-color: black" class="page-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Footer Content</h5>
+            <p class="grey-text text-lighten-4">
+              You can use rows and columns here to organize your footer content.
+            </p>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">Links</h5>
+            <ul>
+              <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+          © 2020 Copyright Text
+          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        </div>
+      </div>
+    </footer>
+    <!-- Sticky Footer End-->
     <script
       src="https://code.jquery.com/jquery-3.5.1.min.js"
       integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
