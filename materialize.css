@@ -3,13 +3,21 @@ html {
   height: 100%;
   background-color: white;
 }
+
+nav {
+  top: 0;
+  left: 0;
+  width: 100%;
+  position: fixed;
+  color: white;
+}
 .section-hero .hero-image {
   width: 50px;
   height: 200px;
   background-size: 50px 200px;
   background-repeat: no-repeat;
   position: relative;
-  opacity: 80%;
+  opacity: 50%;
 
   /* display: block; */
   margin: 0;
