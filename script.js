@@ -1,3 +1,22 @@
+var startButton = document.getElementById("start-btn");
+
+startButton.addEventListener("click", startApp() {
+
+});
+
+function startApp() {
+    startButton.classList.add("hide")
+
+}
+
+
+
+
+
+
+
+
+
 // var btn = $("#btn");
 // var text = $("#text");
 

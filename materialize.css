@@ -3,12 +3,34 @@ html {
   height: 100%;
   background-color: white;
 }
-
-.hero-image {
-  background-image: url("https://cdn.suwalls.com/wallpapers/abstract/glowing-line-7674-1920x1200.jpg");
-  height: 100%;
-  background-position: center;
+.section-hero .hero-image {
+  width: 50px;
+  height: 200px;
+  background-size: 50px 200px;
   background-repeat: no-repeat;
-  background-size: cover;
   position: relative;
+  opacity: 80%;
+
+  /* display: block; */
+  margin: 0;
+  padding: 0;
+}
+
+.section-hero .color-white {
+  color: #fff;
+  font-size: 48px;
+  line-height: 1;
+  font-weight: 600;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.page-footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
 }
