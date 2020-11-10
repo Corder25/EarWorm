@@ -1,7 +1,20 @@
-body,
+/* body,
 html {
   height: 100%;
   background-color: white;
+} */
+
+.section-hero .hero-image {
+  width: 200px;
+  height: 50px;
+  background-size: 50px 200px;
+  background-repeat: no-repeat;
+  position: fixed;
+  opacity: 80%;
+
+  /* display: block; */
+  margin: 0;
+  padding: 0;
 }
 
 nav {
@@ -10,18 +23,6 @@ nav {
   width: 100%;
   position: fixed;
   color: white;
-}
-.section-hero .hero-image {
-  width: 200px;
-  height: 50px;
-  background-size: 50px 200px;
-  background-repeat: no-repeat;
-  position: relative;
-  opacity: 60%;
-
-  /* display: block; */
-  margin: 0;
-  padding: 0;
 }
 
 .section-hero .color-white {
