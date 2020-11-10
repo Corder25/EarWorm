@@ -19,12 +19,16 @@ var getContent = (search) => {
     .then((data) => {});
   var resultsHTML = data.results
     .map(
-      (result) => `
+      (result, index) => `
         <div style="background-image: url(${result.artworkUrl100});"
         onclick="openMedia('${result.previewUrl}', '${result.trackCensoredName}')" class="result"></div>
         `
     )
     .join("");
   containerMain.innerHTML = resultsHTML;
+
+  searchElem.blur();
+  return;
+  fetch(data.results[0].artistViewUrl);
 };
 getContent();
