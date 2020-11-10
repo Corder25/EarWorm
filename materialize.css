@@ -44,3 +44,11 @@ nav {
   width: 100%;
   text-align: center;
 }
+
+.result {
+  width: 150px;
+  height: 125px;
+  background-repeat: no-repeat;
+  background-size: over;
+  background-position: center;
+}
