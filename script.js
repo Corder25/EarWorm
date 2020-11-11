@@ -1,31 +1,62 @@
-var containerMain = document.querySelector(".container-main");
-var artistImage = document.querySelector(".artist");
-var media = document.querySelector(".media");
-var overlay = document.querySelector(".overlay");
-var searchElem = document.querySelector("#search");
+const apiURL = "https://api.lyrics.ovh";
 
-searchElem.addEventListener("keydown", getContent);
+const form = document.getElementById("form")
+const search = document.getElementById("search")
+const result = document.getElementById("result")
+const more = document.getElementById("more")
 
-function getContent(e) {
-  var url = new URL("https://itunes.apple.com/search");
-  var params = { term: searchElem.value, media: "musicVideo" };
-  url.search = new URLSearchParams(params);
-  fetch(url, { method: "GET" })
-    .then((results) => console.log(results))
-    .then((data) => {});
-  var resultsHTML = data.results
-    .map(
-      (result, index) => `
-        <div style="background-image: url(${result.artworkUrl100});"
-        onclick="openMedia('${result.previewUrl}', '${result.trackCensoredName}')" class="result"></div>
-        `
-    )
-    .join("");
-  containerMain.innerHTML = resultsHTML;
 
-  e.preventDefault();
-  searchElem.blur();
-  //   return;
-  fetch(data.results[0].artistViewUrl);
+function searchSongs(term){
+	fetch(`${apiURL}/suggest/${term}`).then(res => res.json()).then(data => console.log(data));
+	showData(data);
 }
-// s
+
+
+//event listeners
+form.addEventListener("submit", e=> {
+	e.preventDefault();
+
+	const searchTerm = search.value.trim();
+	if(!searchTerm) {
+		alert("please type in a search term");
+	} else {
+			searchSongs(searchTerm);
+		}
+});
+//show song and artist in DOM
+function showData(data) {
+// var output = '';
+
+// data.data.forEach(song => {
+// 	output += `
+// 	<li>
+// 	<span><strong>${song.artist.name}</strong> - ${song.title}</span>
+// 	<button class="btn" data-artist="${song.title}">Get Lyrics</button>
+// 	</li>
+// 	`
+	
+	
+// });
+
+// result.innerHTML = `
+// <ul class="songs">
+// ${output}
+// </ul>
+// `;
+
+result.innerHTML = `
+<ul class="songs">
+${data.data.map
+	(song => `<li>
+<span><strong>${song.artist.name}</strong> - ${song.title}</span>
+<button class="btn" data-artist="${song.title}">Get Lyrics</button>
+</li>`
+.join('')
+)}
+
+</ul>
+`
+}
+
+
+
