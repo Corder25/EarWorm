@@ -2,20 +2,16 @@ var containerMain = document.querySelector(".container-main");
 var artistImage = document.querySelector(".artist");
 var media = document.querySelector(".media");
 var overlay = document.querySelector(".overlay");
-var searchElem = document.querySelector(".input-field");
+var searchElem = document.querySelector("#search");
 
-searchElem.addEventListener("keydown", (event) => {
-  if (event.key === "Enter") {
-    getContent(searchElem.value);
-  }
-});
+searchElem.addEventListener("keydown", getContent);
 
-var getContent = (search) => {
+function getContent(e) {
   var url = new URL("https://itunes.apple.com/search");
-  var params = { term: search, media: "musicVideo" };
+  var params = { term: searchElem.value, media: "musicVideo" };
   url.search = new URLSearchParams(params);
-  fetch(url, { method: "POST" })
-    .then((results) => results.json())
+  fetch(url, { method: "GET" })
+    .then((results) => console.log(results))
     .then((data) => {});
   var resultsHTML = data.results
     .map(
@@ -27,8 +23,9 @@ var getContent = (search) => {
     .join("");
   containerMain.innerHTML = resultsHTML;
 
+  e.preventDefault();
   searchElem.blur();
-  return;
+  //   return;
   fetch(data.results[0].artistViewUrl);
-};
-getContent();
+}
+// s
