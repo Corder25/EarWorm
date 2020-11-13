@@ -7,14 +7,6 @@
   font: 14px;
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
-  width: 100vw;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-}
-
-.container-main {
-  display: flex;
 }
 
 .section-hero .hero-image {
@@ -28,7 +20,7 @@
   align-items: center;
 }
 
-.nav-img {
+.nav-wrapper {
   background-color: black;
   text-align: right;
   color: white;
@@ -37,10 +29,10 @@
   margin-top: 0;
   margin-left: 0;
   position: fixed;
+  z-index: 300;
 }
 
 .section-hero .color-white {
-  color: #fff;
   font-size: 48px;
   line-height: 1;
   font-weight: 600;
@@ -48,6 +40,7 @@
   margin-left: auto;
   margin-right: auto;
   display: block;
+  width: 40%;
 }
 
 .page-footer {
@@ -58,17 +51,9 @@
   text-align: center;
 }
 
-.nav-img {
-  background-image: url("images/background.png");
-  min-height: 380px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-}
-
 .splash {
   position: fixed;
+  padding: 70px 0;
   top: 0;
   left: 0;
   width: 100%;
@@ -82,6 +67,7 @@
 
 .splash.display-none {
   position: fixed;
+  padding: 70px 0;
   opacity: 0;
   top: 0;
   left: 0;
@@ -92,6 +78,7 @@
   color: white;
   text-align: center;
   line-height: 90vh;
+  transition: all 0.5s;
 }
 
 @keyframes fadeIn {
