@@ -1,46 +1,68 @@
-/* Splash screen */
+//Setting the API
+const apiURL = "https://api.lyrics.ovh";
+// setting variables
+const form = document.getElementById("form");
+const search = document.getElementById("search");
+const result = document.getElementById("result");
+const more = document.getElementById("more");
 
-var splash = document.querySelector(".splash");
+// event listeners
+form.addEventListener("submit", e => {
+	e.preventDefault();
 
-document.addEventListener("DOMContentLoaded", (e) => {
-  setTimeout(() => {
-    splash.classList.add("display-none");
-  }, 2000);
+  const searchTerm = search.value.trim();
+	if(!searchTerm) {
+		alert("please type in a search term");
+	} else {
+			searchSongs(searchTerm);
+		}
 });
+  async function searchSongs(term){
+//calling api
+  const res = await fetch(`${apiURL}/suggest/${term}`);
+    const data = await res.json();
+     showData(data);
 
-/* Slider Image */
-
-var slideIndex = 1;
-showSlides(slideIndex);
-
-// Next/previous controls
-function plusSlides(n) {
-  showSlides((slideIndex += n));
 }
-
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides((slideIndex = n));
+  //show song and artist in DOM
+  function showData(data) {
+  result.innerHTML = `
+  <ul class="songs">
+  ${data.data.map(
+    song => `	<li>
+    <span><strong>${song.artist.name}</strong> - ${song.title}</span>
+    <button class="btn" data-artist="${song.artist.name}"
+    data-songtitle="${song.title}">Get Lyrics</button>
+    </li>`)
+  .join('')
 }
+  
+  </ul>
+  `;
+  
+   };
+   // Get lyrics for song
+    async function getLyrics(artist, songTitle) {
+      const res = await fetch(`${apiURL}/v1/${artist}/${songTitle}`);
+        const data = await res.json();
 
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("demo");
-  var captionText = document.getElementById("caption");
-  if (n > slides.length) {
-    slideIndex = 1;
+          if (data.error) {
+            result.innerHTML = data.error;
+         } else {
+        const lyrics = data.lyrics.replace(/(\r\n|\r|\n)/g, '<br>');
+
+        result.innerHTML = `
+            <h2><strong>${artist}</strong> - ${songTitle}</h2>
+            <span>${lyrics}</span>
+        `;
+        }
+
+        more.innerHTML = '';
+    };
+//get lyrics
+result.addEventListener("click", e => {
+  if(clickedEl.tagName === 'BUTTON') {
+    const artist = clickedEl.getAttribute('data-artist');
+      const songTitle = clickedEl.getAttribute('data-songtitle')
   }
-  if (n < 1) {
-    slideIndex = slides.length;
-  }
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex - 1].style.display = "block";
-  dots[slideIndex - 1].className += " active";
-  captionText.innerHTML = dots[slideIndex - 1].alt;
-}
+});
