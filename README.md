@@ -12,3 +12,7 @@ SCREEN SHOTS
 <img width="358" alt="Screen Shot 2020-11-14 at 12 34 57 AM" src="https://user-images.githubusercontent.com/67757549/99154930-39f22180-2679-11eb-8304-114d5d4759f6.png">
 <img width="356" alt="Screen Shot 2020-11-14 at 12 35 18 AM" src="https://user-images.githubusercontent.com/67757549/99154931-3c547b80-2679-11eb-94f3-b72bf3dca2db.png">
 <img width="357" alt="Screen Shot 2020-11-14 at 12 35 33 AM" src="https://user-images.githubusercontent.com/67757549/99154933-3e1e3f00-2679-11eb-9233-8394bdf54723.png">
+
+DEPLOYED LINK
+
+[Deployed Application](https://pheno-cat.github.io/Project1_earworm)
